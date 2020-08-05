@@ -2,83 +2,63 @@
 
 namespace App\Http\Controllers;
 
+use App\Dealer;
 use Illuminate\Http\Request;
 
 class DealerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $dealers = Dealer::all();
+        return view('dealer', ['dealers'=>$dealers, 'layout'=>'index']);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $dealers = Dealer::all();
+        return view('dealer', ['dealers'=>$dealers, 'layout'=>'create']);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $dealer = new Dealer();
+        $dealer->businessName = $request->input('businessName');
+        $dealer->region = $request->input('region');
+        $dealer->address = $request->input('address');
+        $dealer->address1 = $request->input('address1');
+        $dealer->square = $request->input('square');
+        $dealer->phone = $request->input('phone');
+        $dealer->email = $request->input('email');
+        $dealer->save();
+        return redirect('/');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $dealer = Dealer::find($id);
+        $dealers = Dealer::all();
+        return view('dealer', ['dealers'=>$dealers, 'dealer'=>$dealer, 'layout'=>'show']);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $dealer = Dealer::find($id);
+        $dealers = Dealer::all();
+        return view('dealer', ['dealers'=>$dealers, 'dealer'=>$dealer, 'layout'=>'edit']);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $dealer = Dealer::find($id);
+        $dealer->businessName = $request->input('businessName');
+        $dealer->region = $request->input('region');
+        $dealer->address = $request->input('address');
+        $dealer->address1 = $request->input('address1');
+        $dealer->square = $request->input('square');
+        $dealer->phone = $request->input('phone');
+        $dealer->email = $request->input('email');
+        $dealer->save();
+        return redirect('/');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $dealer = Dealer::find($id);
+        $dealer->delete();
+        return redirect('/');
     }
 }
