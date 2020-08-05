@@ -27,7 +27,7 @@
         <td>{{ $dealer->status }}</td>
         <td>
             <a href="#" class="btn btn-sm btn-info">Show</a>
-            <a href="{{ url('/edit'.$dealer->id) }}" class="btn btn-sm btn-warning">Edit</a>
+            <a href="{{ url('/edit/'.$dealer->id) }}" class="btn btn-sm btn-warning">Edit</a>
             <a href="#" class="btn btn-sm btn-danger">Delete</a>
         </td>
     </tr>
