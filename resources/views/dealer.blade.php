@@ -27,7 +27,8 @@
                 @include("dealerslist")
             </section>
             <section class="col">
-                <form>
+                <form action="{{ url('/store') }}" method="post">
+                    @csrf
                     <div class="form-group">
                         <label>Наименование юридического лица</label>
                         <input name="businessName" type="text" class="form-control" placeholder="Введите наименование юридического лица">

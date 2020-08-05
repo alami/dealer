@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Dealer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class DealerController extends Controller
 {
@@ -27,6 +28,7 @@ class DealerController extends Controller
         $dealer->square = $request->input('square');
         $dealer->phone = $request->input('phone');
         $dealer->email = $request->input('email');
+        $dealer->slug = Str::slug($request->input('businessName'), "-");
         $dealer->save();
         return redirect('/');
     }
