@@ -1,3 +1,10 @@
+<div class="card mb-3">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Список агентов (дилеров)</h5>
+        <p class="card-text">Вся информация о агентах (дилерах)</p>
+     </div>
+</div>
 <table class="table">
     <thead class="thead-light">
     <tr>
@@ -10,7 +17,7 @@
         <th scope="col">Адрес электронной почты заявителя</th>
         <th scope="col">Slug</th>
         <th scope="col">Статус</th>
-        <th scope="col">_______Действия______</th>
+        <th scope="col">Действия</th>
     </tr>
     </thead>
     <tbody>
@@ -26,9 +33,7 @@
         <td>{{ $dealer->slug }}</td>
         <td>{{ $dealer->status }}</td>
         <td>
-            <a href="#" class="btn btn-sm btn-info">Show</a>
             <a href="{{ url('/edit/'.$dealer->id) }}" class="btn btn-sm btn-warning">Edit</a>
-            <a href="#" class="btn btn-sm btn-danger">Delete</a>
         </td>
     </tr>
     @endforeach

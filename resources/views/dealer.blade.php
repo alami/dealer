@@ -11,8 +11,14 @@
     <title>Dealer managment system</title>
 </head>
 <body>
+@include("navbar")
+<div class="row header-container justify-content-center">
+    <div class="header">
+        <h1>Agents management system</h1>
+    </div>
+</div>
 @if($layout == 'index')
-    <div class="contener-fluid">
+    <div class="contener-fluid mt-4">
         <div class="row">
             <section class="col">
                 @include("dealerslist")
@@ -21,7 +27,7 @@
         </div>
     </div>
 @elseif($layout == 'create')
-    <div class="contener-fluid">
+    <div class="contener-fluid mt-4">
         <div class="row">
             <section class="col">
                 @include("dealerslist")
@@ -32,7 +38,7 @@
         </div>
     </div>
 @elseif($layout == 'show')
-    <div class="contener-fluid">
+    <div class="contener-fluid mt-4">
         <div class="row">
             <section class="col">
                 @include("dealerslist")
@@ -41,7 +47,7 @@
         </div>
     </div>
 @elseif($layout == 'edit')
-    <div class="contener-fluid">
+    <div class="contener-fluid mt-4">
         <div class="row">
             <section class="col">
                 @include("dealerslist")
@@ -52,7 +58,7 @@
         </div>
     </div>
 @endif
-
+<footer></footer>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
