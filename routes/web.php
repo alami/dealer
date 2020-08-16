@@ -1,5 +1,6 @@
 <?php
 
+use App\Dealer;
 use App\Greeting;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,10 @@ Route::apiResource ( 'mysample', 'MySampleResourceController' );
 
 Route::post('users/{user}/update-avatar', 'UpdateUserAvatar');
 Route::get('invoke', 'InvokeController');
+
+//Неявная привязка модели Dealer маршрута...... 73
+Route::get('dealers/{dealer}', function (Dealer $dealer) {
+    return view('dealeredit')->with('dealer', $dealer); });
+Route::get('events/{event}', function (Dealer $event) {
+    return view('dealeredit')->with('dealer', $event); });
+
