@@ -3,6 +3,7 @@
 use App\Dealer;
 use App\Greeting;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
 
 Route::get('/', "DealerController@index");
 Route::get('/edit/{id}', "DealerController@edit");
@@ -37,3 +38,18 @@ Route::get('dealers/{dealer}', function (Dealer $dealer) {
 Route::get('events/{event}', function (Dealer $event) {
     return view('dealeredit')->with('dealer', $event); });
 
+Route::get('form', function () { return view('form'); });
+
+Route::post('form', function (Illuminate\Http\Request $request) {
+    $validator = Validator::make($request->all(), $this->validationRules);
+if ($validator->fails()) {
+    return back()
+        ->withErrors($validator)
+        ->withInput();
+    }
+});
+Route::post('form', function () {
+    return redirect('form')
+        ->withInput()
+        ->with(['error' => true, 'message' => 'Whoops! ']);
+});
