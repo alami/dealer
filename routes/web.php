@@ -25,3 +25,4 @@ Route::get('first-greeting', function () { return Greeting::first()->body; });
 Route::apiResource ( 'mysample', 'MySampleResourceController' );
 
 Route::post('users/{user}/update-avatar', 'UpdateUserAvatar');
+Route::get('invoke', 'InvokeController');
