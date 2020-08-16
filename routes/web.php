@@ -25,7 +25,10 @@ Route::get('first-greeting', function () { return Greeting::first()->body; });
 
 Route::apiResource ( 'mysample', 'MySampleResourceController' );
 
-Route::post('users/{user}/update-avatar', 'UpdateUserAvatar');
+Route::get('form4update-avatar', function (){
+    return view('form4update-avatar');
+});
+Route::post('test/{user}/updateavatar', 'UpdateuseravatarController');
 Route::get('invoke', 'InvokeController');
 
 //Неявная привязка модели Dealer маршрута...... 73
