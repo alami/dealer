@@ -21,3 +21,5 @@ Route::get('create-greeting', function () {
     return response('record was saved in DB !');
 });
 Route::get('first-greeting', function () { return Greeting::first()->body; });
+
+Route::apiResource ( 'mysample', 'MySampleResourceController' );
